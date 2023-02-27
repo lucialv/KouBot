@@ -22,8 +22,10 @@ client.on("ready", () => {
     activities: [{ name: `Blanes`, type: ActivityType.Watching }],
     status: "online",
   });
+  console.log(`Client logged as ${client.user.tag}`);
 });
 const mongoose = require("mongoose");
+mongoose.set("strictQuery", true);
 const databaseurl = process.env["DatabaseURL"];
 mongoose
   .connect(databaseurl, {})

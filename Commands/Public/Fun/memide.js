@@ -25,6 +25,12 @@ module.exports = {
   async execute(interaction, client) {
     const Target = interaction.options.getUser("miembro");
     const random = Math.floor(Math.random() * 30);
+    if (
+      (interaction.member.id == 997571433280577656 && !Target) ||
+      (Target && Target.id == 997571433280577656)
+    ) {
+      random = 100;
+    }
     if (random <= 9) {
       const embed = new EmbedBuilder()
         .setAuthor({

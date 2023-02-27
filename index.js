@@ -11,7 +11,7 @@ const client = new Client({
   intents: [Guilds, GuildMembers, GuildMessages],
   partials: [User, Message, GuildMember, ThreadMember],
 });
-
+require("dotenv").config();
 client.config = require("./config.json");
 client.events = new Collection();
 client.commands = new Collection();
@@ -24,7 +24,7 @@ client.on("ready", () => {
   });
 });
 const mongoose = require("mongoose");
-const databaseurl = process.env['DatabaseURL']
+const databaseurl = process.env["DatabaseURL"];
 mongoose
   .connect(databaseurl, {})
   .then(() => console.log("The client is now connected to the database."));
@@ -34,5 +34,5 @@ loadEvents(client);
 
 const { loadConfig } = require("./Functions/configLoader");
 loadConfig(client);
-const mySecret = process.env['token']
+const mySecret = process.env["token"];
 client.login(mySecret);

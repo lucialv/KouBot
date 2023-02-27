@@ -33,7 +33,6 @@ mongoose
 
 const { loadEvents } = require("./Handlers/eventHandler");
 loadEvents(client);
-
 const { loadConfig } = require("./Functions/configLoader");
 loadConfig(client);
 const mySecret = process.env["token"];
